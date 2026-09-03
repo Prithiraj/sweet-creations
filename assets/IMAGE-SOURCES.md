@@ -12,12 +12,10 @@ For a commercial owner-controlled launch, replace these references with photogra
 
 | Usage | Photographer | Source | License / status |
 | --- | --- | --- | --- |
-| Hero frosting detail | Gennady Zakharin | https://unsplash.com/photos/close-up-of-a-frosted-cake-with-piped-frosting-f8jyX-dTSNE | Unsplash License · `DEMO_IMAGE_REPLACE_BEFORE_LAUNCH` |
-| Cake panel / gallery | Jasmine Bartel | https://unsplash.com/photos/baked-strawberry-cake-8LtrMQfeDkQ | Unsplash License · `DEMO_IMAGE_REPLACE_BEFORE_LAUNCH` |
-| Pastry panel | Mia Cambriello | https://unsplash.com/photos/baked-croissants-TrgcyekDMLQ | Unsplash License · `DEMO_IMAGE_REPLACE_BEFORE_LAUNCH` |
-| Pastry display gallery | Phil Hearing | https://unsplash.com/photos/assortment-of-fresh-pastries-and-croissants-on-display-iKExZ008Zh0 | Unsplash License · `DEMO_IMAGE_REPLACE_BEFORE_LAUNCH` |
+| Hero cake | BINYOUSSIF mohammad ali | https://unsplash.com/photos/a-frosted-cake-sitting-on-top-of-a-gold-plate-oZcV_g4YQsg | Unsplash License · `DEMO_IMAGE_REPLACE_BEFORE_LAUNCH` |
+| Cake panel | Jasmine Bartel | https://unsplash.com/photos/baked-strawberry-cake-8LtrMQfeDkQ | Unsplash License · `DEMO_IMAGE_REPLACE_BEFORE_LAUNCH` |
+| Pastry panel / gallery | Phil Hearing | https://unsplash.com/photos/assortment-of-fresh-pastries-and-croissants-on-display-iKExZ008Zh0 | Unsplash License · `DEMO_IMAGE_REPLACE_BEFORE_LAUNCH` |
 | Cake-decorating process reference | Matheus Ferrero | https://unsplash.com/photos/a-person-decorating-a-cake-with-chocolate-icing-fgKw_vjDmAQ | Unsplash License · `DEMO_IMAGE_REPLACE_BEFORE_LAUNCH` |
-| Cake display gallery | Chris Kursikowski | https://unsplash.com/photos/a-display-case-filled-with-lots-of-different-types-of-cakes-TUepn5RJNkY | Unsplash License · `DEMO_IMAGE_REPLACE_BEFORE_LAUNCH` |
 | Berry cake gallery | Anita Austvika | https://unsplash.com/photos/a-cake-with-white-frosting-and-berries-on-top-ImtWZLB8tNg | Unsplash License · `DEMO_IMAGE_REPLACE_BEFORE_LAUNCH` |
 
 Unsplash license information: https://unsplash.com/license
