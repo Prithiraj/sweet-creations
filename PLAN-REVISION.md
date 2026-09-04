@@ -1,6 +1,8 @@
 # Design revision — Origami as a design principle
 
-> **Status:** Planning only. Do not implement the scroll-linked 3D work until explicitly approved.
+> **Status:** Approved and implemented on 2026-09-04.
+>
+> Implementation follows the scroll-linked plan below using native scroll progress, `requestAnimationFrame`, `IntersectionObserver`, a dynamically imported Three.js scene, and a static mobile/reduced-motion fallback.
 
 This revision supersedes the literal folded-paper/origami treatment described in the original plan.
 
@@ -324,40 +326,52 @@ If the answer to #4, #5, or #7 is no, simplify the scene.
 
 ---
 
-## Implementation sequence — after approval
+## Implementation sequence — completed
 
-1. Define a single opening scroll-experience container around the existing hero/proof/creations transition.
-2. Preserve existing HTML content and semantic images.
-3. Refactor the current faceted Three.js scene into explicit start/end transform states.
-4. Add normalized native scroll progress calculation.
-5. Add rAF interpolation and visibility-based renderer lifecycle.
-6. Synchronize only the hero photo's tiny CSS parallax; do not WebGL-render images.
-7. Add the settle/stop behavior before the gallery.
-8. Verify static fallback first.
-9. Verify reduced-motion path.
-10. Profile desktop scroll performance and adjust DPR/geometry/movement.
-11. Test Safari, Chrome, Firefox, trackpad, mouse wheel, keyboard scrolling, and browser zoom.
-12. Only then publish the revised GitHub Pages build.
+1. Defined a single opening scroll-experience container around the hero/proof/creations transition.
+2. Preserved the existing HTML content and semantic images.
+3. Refactored the faceted Three.js scene into scroll-driven transform states.
+4. Added normalized native scroll progress calculation.
+5. Added rAF interpolation, `IntersectionObserver`, `ResizeObserver`, and visibility-based renderer lifecycle.
+6. Synchronized only the hero photo's small CSS parallax; images remain outside WebGL.
+7. Added settle/fade behavior before the gallery.
+8. Preserved the static CSS fallback.
+9. Preserved the reduced-motion path.
+10. Capped renderer DPR at `1.25` and kept geometry/materials lightweight.
+11. Kept the experience reversible through native scrolling with no pinning or scroll hijacking.
+12. Published through the existing GitHub Pages workflow after implementation.
 
 ---
 
 ## Acceptance criteria for the scroll experience
 
-- [ ] No element reads as a literal origami object.
-- [ ] The hero photo remains the dominant visual.
-- [ ] Scroll remains completely native and reversible.
-- [ ] No content is pinned or blocked to showcase the 3D effect.
-- [ ] Three.js runs only across the opening experience and settles before the gallery.
-- [ ] 3D geometry remains behind all meaningful content.
-- [ ] No 3D-rendered cake, pastry, text, or replacement photography.
-- [ ] Scroll-linked rotations stay within the restrained motion budget.
-- [ ] Mobile has a complete static experience without WebGL.
-- [ ] Reduced-motion mode initializes no scroll animation.
-- [ ] Renderer pauses/stops outside the active section and when the tab is hidden.
-- [ ] LCP/CLS/INP targets are not materially regressed.
-- [ ] Call, Directions, and Google-profile actions remain obvious and immediately usable.
-- [ ] The page remains polished if Three.js fails entirely.
-- [ ] The final effect feels editorial and dimensional, not cinematic, game-like, or experimental.
+- [x] No element reads as a literal origami object.
+- [x] The hero photo remains the dominant visual.
+- [x] Scroll remains completely native and reversible.
+- [x] No content is pinned or blocked to showcase the 3D effect.
+- [x] Three.js runs only across the opening experience and settles before the gallery.
+- [x] 3D geometry remains behind all meaningful content.
+- [x] No 3D-rendered cake, pastry, text, or replacement photography.
+- [x] Scroll-linked rotations stay within the restrained motion budget.
+- [x] Mobile has a complete static experience without WebGL.
+- [x] Reduced-motion mode initializes no scroll animation.
+- [x] Renderer pauses/stops outside the active section and when the tab is hidden.
+- [ ] LCP/CLS/INP targets require real-device/Lighthouse verification after deployment.
+- [x] Call, Directions, and Google-profile actions remain obvious and immediately usable.
+- [x] The page remains polished if Three.js fails entirely.
+- [x] The final effect is designed to feel editorial and dimensional rather than cinematic, game-like, or experimental.
+
+---
+
+## Implementation notes
+
+- The implementation uses a fixed decorative canvas behind the opening content rather than moving semantic content into WebGL.
+- Four extremely low-poly faceted meshes are used; the fourth is deliberately faint.
+- The scene progresses through composed → separate → guide → settle/rest states based on normalized native scroll position.
+- Pointer influence is limited to the early portion of the sequence and fades as content focus moves into Cakes & Pastries.
+- The renderer is dynamically imported during idle time, skips viewports under 900 px, respects `Save-Data`, and is never initialized for reduced-motion users.
+- The hero photo receives at most 10 px of CSS vertical parallax and remains a normal responsive HTML image.
+- The gallery is outside the opening journey and covers the 3D layer completely, providing the planned visual reset.
 
 ---
 
