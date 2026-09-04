@@ -168,11 +168,14 @@ async function initScrollDepth() {
   }, { threshold: 0, rootMargin: '16% 0px 12% 0px' });
   journeyObserver.observe(journey);
 
-  window.addEventListener('scroll', markScrollDirty, { passive: true });
-  window.addEventListener('resize', () => {
+  const resizeObserver = new ResizeObserver(() => {
     resizeRenderer();
     markScrollDirty();
-  }, { passive: true });
+  });
+  resizeObserver.observe(depthHost);
+
+  window.addEventListener('scroll', markScrollDirty, { passive: true });
+  window.addEventListener('resize', markScrollDirty, { passive: true });
 
   if (finePointer) {
     journey.addEventListener('pointermove', (event) => {
